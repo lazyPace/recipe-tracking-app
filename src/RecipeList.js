@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RecipeList () {
+function RecipeList ({ formData }) {
   // TODO: Display the list of recipes using the structure of table that is provided.
   // TODO: Create at least one additional component that is used by this component.
   // TODO: Each recipe row must have a delete button - <button name="delete">Delete</button> - that deletes the post when clicked
@@ -10,11 +10,17 @@ function RecipeList () {
       <table>
         <thead>
           <tr>
-            <th></th>
+            <th>Name</th>
+            <th>Cuisine</th>
+            <th>Photo</th>
+            <th>Ingredients</th>
+            <th>Preparation</th>
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <tr></tr>
+        </tbody>
       </table>
     </div>
   )
