@@ -24,6 +24,7 @@ img {
   object-fit: scale-down;
 }
 
+
 /* zebra striping */
 
 tbody tr:nth-child(odd) {
