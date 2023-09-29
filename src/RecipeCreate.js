@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './RecipeCreate.css'
 
-function RecipeCreate ({ formData, setFormData, postRecipe }) {
+function RecipeCreate ({ formData, setFormData, setRecipes, photo, setPhoto }) {
   // TODO: When the form is submitted, a new recipe should be created, and the form contents cleared.
   // TODO: Add the required input and textarea form elements.
   // TODO: Add the required submit and change handlers
@@ -14,22 +14,26 @@ function RecipeCreate ({ formData, setFormData, postRecipe }) {
     preparation: ''
   }
 
-  const [name, setName] = useState('')
-  const [cuisine, setCuisine] = useState('')
-  const [photo, setPhoto] = useState('')
-  const [rating, setRating] = useState('')
-  const [ingredients, setIngredients] = useState('')
-  const [preparation, setPreparation] = useState('')
+  const photoChange = e => {
+    const { value } = e.target
+
+    setPhoto(value) // update photo URL immediately
+    console.log('Photo has changed')
+    console.log(value)
+  }
 
   const handleChange = e => {
     const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-    console.log(value)
+    setFormData(prevData => ({ ...prevData, [name]: value }))
   }
 
   const saveRecipe = e => {
     e.preventDefault()
-    postRecipe(formData)
+    setRecipes(currentRecipes => [
+      { ...formData, photo: photo },
+      ...currentRecipes
+    ])
+
     setFormData(initialFormState)
   }
 
@@ -63,8 +67,8 @@ function RecipeCreate ({ formData, setFormData, postRecipe }) {
                 name='photo'
                 id='photo'
                 placeholder='URL'
-                onChange={handleChange}
-                value={formData.photo}
+                onChange={photoChange}
+                required={true}
               ></input>
             </td>
             <td>
