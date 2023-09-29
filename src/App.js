@@ -21,13 +21,18 @@ function App () {
   const postRecipe = newRecipe =>
     setRecipes(currentRecipes => [newRecipe, ...currentRecipes])
 
+  const deleteRecipe = indexToDelete =>
+    setRecipes(currentRecipes =>
+      currentRecipes.filter((recipe, index) => index != indexToDelete)
+    )
+
   return (
     <div className='App'>
       <header>
         <h1>Delicious Food Recipes</h1>
       </header>
       <RecipeList formData={formData} />
-      <RecipeView recipes={recipes} />
+      <RecipeView recipes={recipes} deleteRecipe={deleteRecipe} />
       <RecipeCreate
         formData={formData}
         setFormData={setFormData}

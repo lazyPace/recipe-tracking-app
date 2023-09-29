@@ -28,7 +28,26 @@ img {
 /* zebra striping */
 
 tbody tr:nth-child(odd) {
-  background-color: #fff0c7;
+  background-color: #c7fffc;
+}
+
+button {
+  font-weight: bold;
+  padding: 1em;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20%;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #c7fffc;
+}
+
+button:active {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
 }
 
 /* typography */
