@@ -3,6 +3,7 @@ import './App.css'
 import RecipeCreate from './RecipeCreate'
 import RecipeList from './RecipeList'
 import RecipeData from './RecipeData'
+import RecipeView from './RecipeView'
 
 function App () {
   const [recipes, setRecipes] = useState(RecipeData)
@@ -26,6 +27,7 @@ function App () {
         <h1>Delicious Food Recipes</h1>
       </header>
       <RecipeList formData={formData} />
+      <RecipeView recipes={recipes} />
       <RecipeCreate
         formData={formData}
         setFormData={setFormData}
