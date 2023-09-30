@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import RecipeData from './RecipeData'
+import React from 'react'
 
-function RecipeView ({ recipe, deleteRecipe, photo, formData }) {
+function RecipeView ({ recipe, deleteRecipe }) {
   return (
     <tr>
       <td>{recipe.name}</td>

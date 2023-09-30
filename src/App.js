@@ -3,7 +3,6 @@ import './App.css'
 import RecipeCreate from './RecipeCreate'
 import RecipeList from './RecipeList'
 import RecipeData from './RecipeData'
-import RecipeView from './RecipeView'
 
 function App () {
   const [recipes, setRecipes] = useState(RecipeData)
@@ -14,13 +13,12 @@ function App () {
     ingredients: '',
     preparation: ''
   })
-  const [photo, setPhoto] = useState('')
   // TODO: Add the ability for the <RecipeList /> component to list and delete an existing recipe.
   // TODO: Add the ability for the <RecipeCreate /> component to create new recipes.
 
   const deleteRecipe = indexToDelete =>
     setRecipes(currentRecipes =>
-      currentRecipes.filter((recipe, index) => index != indexToDelete)
+      currentRecipes.filter((recipe, index) => index !== indexToDelete)
     )
 
   return (
@@ -32,14 +30,11 @@ function App () {
         formData={formData}
         recipes={recipes}
         deleteRecipe={deleteRecipe}
-        photo={photo}
       />
       <RecipeCreate
         formData={formData}
         setFormData={setFormData}
         setRecipes={setRecipes}
-        photo={photo}
-        setPhoto={setPhoto}
       />
     </div>
   )

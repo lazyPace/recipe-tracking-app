@@ -91,6 +91,16 @@ table {
   text-overflow: ellipsis;
 }
 
+textarea {
+  width: 18rem;
+  height: 7rem;
+}
+
+input {
+  resize: none;
+}
+
+
 /* Column Size for thead */
 
 thead th:nth-child(1) {
