@@ -10,7 +10,7 @@ function App () {
   const [formData, setFormData] = useState({
     name: '',
     cuisine: '',
-    rating: '',
+    photo: '',
     ingredients: '',
     preparation: ''
   })
@@ -32,6 +32,7 @@ function App () {
         formData={formData}
         recipes={recipes}
         deleteRecipe={deleteRecipe}
+        photo={photo}
       />
       <RecipeCreate
         formData={formData}

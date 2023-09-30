@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import RecipeData from './RecipeData'
 import './RecipeCreate.css'
 
 function RecipeCreate ({ formData, setFormData, setRecipes, photo, setPhoto }) {
@@ -14,14 +15,6 @@ function RecipeCreate ({ formData, setFormData, setRecipes, photo, setPhoto }) {
     preparation: ''
   }
 
-  const photoChange = e => {
-    const { value } = e.target
-
-    setPhoto(value) // update photo URL immediately
-    console.log('Photo has changed')
-    console.log(value)
-  }
-
   const handleChange = e => {
     const { name, value } = e.target
     setFormData(prevData => ({ ...prevData, [name]: value }))
@@ -29,11 +22,8 @@ function RecipeCreate ({ formData, setFormData, setRecipes, photo, setPhoto }) {
 
   const saveRecipe = e => {
     e.preventDefault()
-    setRecipes(currentRecipes => [
-      { ...formData, photo: photo },
-      ...currentRecipes
-    ])
-
+    const updatedRecipeData = [...RecipeData, { ...formData }]
+    setRecipes(updatedRecipeData)
     setFormData(initialFormState)
   }
 
@@ -67,7 +57,8 @@ function RecipeCreate ({ formData, setFormData, setRecipes, photo, setPhoto }) {
                 name='photo'
                 id='photo'
                 placeholder='URL'
-                onChange={photoChange}
+                onChange={handleChange}
+                value={formData.photo}
                 required={true}
               ></input>
             </td>
@@ -97,6 +88,7 @@ function RecipeCreate ({ formData, setFormData, setRecipes, photo, setPhoto }) {
               </button>
             </td>
           </tr>
+          <tr></tr>
         </tbody>
       </table>
     </form>
